@@ -1,6 +1,7 @@
 require "sprockets"
 require "uglifier"
 require "yui/compressor"
+require "sinatra/base"
 require "sinatra_asset_packager/version"
 require "sinatra_asset_packager/routes"
 

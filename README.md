@@ -1,12 +1,14 @@
-# Sinatra::AssetPackager
+# SinatraAssetPackager
 
 Opinionated asset packaging for Sinatra done well.
+
+Uses Sprockets, Uglifier, and YUI Compressor under the hood.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'sinatra-assetpackager'
+    gem 'sinatra_asset_packager'
 
 And then execute:
 
@@ -14,11 +16,24 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install sinatra-assetpackager
+    $ gem install sinatra_asset_packager
 
-## Usage
+Then in your Sinatra app's config.ru place the following:
 
-TODO: Write usage instructions here
+    use SinatraAssetPackager::Routes
+
+Recommendation: Go a step further and only run the live asset packager on development. To do so, do the following:
+
+    use SinatraAssetPackager::Routes if ENV['RACK_ENV'] == "development"
+    use Rack::Static, :urls => ['/favicon.ico', '/assets'], :root => 'public'
+
+Now Rack::Static will pick the static files up at /assets in production mode.
+
+You also get the following task with it.
+
+    $ rake assets:precompile
+
+If you are using heroku this will precompile your assets on deploy.
 
 ## Contributing
 

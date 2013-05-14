@@ -1,5 +1,5 @@
 module SinatraAssetPackager
-  class Routes < Sinatra::Base
+  class Routes < ::Sinatra::Base
     get "/assets/*.js" do
       content_type("application/javascript")
       filepath = params[:splat][0]

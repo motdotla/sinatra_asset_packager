@@ -11,7 +11,8 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Opinionated asset packaging for Sinatra done well.}
   gem.summary       = %q{Opinionated asset packaging for Sinatra done well.}
   gem.homepage      = "http://github.com/scottmotte/sinatra_asset_packager"
-
+  
+  gem.add_dependency "sinatra"
   gem.add_dependency "sprockets"
   gem.add_dependency "uglifier"
   gem.add_dependency "yui-compressor"
