@@ -12,13 +12,13 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Opinionated asset packaging for Sinatra done well.}
   gem.homepage      = "http://github.com/scottmotte/sinatra_asset_packager"
   
+  gem.add_dependency "rake"
   gem.add_dependency "sinatra"
   gem.add_dependency "sprockets"
   gem.add_dependency "uglifier"
   gem.add_dependency "yui-compressor"
   
   gem.add_development_dependency "pry"
-  gem.add_development_dependency "rake"
   gem.add_development_dependency "rspec"
 
   gem.files         = `git ls-files`.split($/)

@@ -1,9 +1,11 @@
+require "rake"
 require "sprockets"
 require "uglifier"
 require "yui/compressor"
 require "sinatra/base"
 require "sinatra_asset_packager/version"
 require "sinatra_asset_packager/routes"
+require "sinatra_asset_packager/rake"
 
 module SinatraAssetPackager
   extend self
