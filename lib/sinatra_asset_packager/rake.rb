@@ -24,5 +24,6 @@ namespace :assets do
     end
 
     FileUtils.cp_r(Dir['app/assets/images/*'], 'public/assets')
+    FileUtils.cp_r(Dir['app/assets/templates/*'], 'public/assets')
   end
 end
