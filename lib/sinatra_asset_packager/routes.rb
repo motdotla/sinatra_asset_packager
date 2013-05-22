@@ -6,10 +6,16 @@ module SinatraAssetPackager
       SinatraAssetPackager.environment["#{filepath}.js"]
     end
 
-    get "/assets/*.css" do |path|
+    get "/assets/*.css" do
       content_type "text/css", charset: "utf-8"
       filepath = params[:splat][0]
       SinatraAssetPackager.environment["#{filepath}.css"]
+    end
+
+    get "/assets/*.html" do
+      content_type "text/html"
+      filepath = params[:splat][0]
+      SinatraAssetPackager.environment["#{filepath}.html"]
     end
 
     %w{jpg png gif}.each do |format|

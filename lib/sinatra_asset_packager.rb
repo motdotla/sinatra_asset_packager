@@ -15,6 +15,7 @@ module SinatraAssetPackager
       env.append_path("app/assets/images")
       env.append_path("app/assets/javascripts")
       env.append_path("app/assets/stylesheets")
+      env.append_path("app/assets/templates")
       
       if !!compress || ["production", "staging"].include?(ENV["RACK_ENV"])
         env.js_compressor  = Uglifier.new(mangle: true)
