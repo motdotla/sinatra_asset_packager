@@ -4,6 +4,8 @@ Opinionated asset packaging for Sinatra done well.
 
 Uses Sprockets, Uglifier, and YUI Compressor under the hood.
 
+Make all your (css|scss|sass|less) and (js|coffee) files only end with a single extension. I.E. .coffee instead of .js.coffee. And .sass, instead of .css.sass. This is for a reason. I find Rails' approach of .js.coffee redundant and less readable.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -34,6 +36,38 @@ You also get the following task with it.
     $ rake assets:precompile
 
 If you are using heroku this will precompile your assets on deploy.
+
+## Other Options
+
+Use the javascript_include_tag helper if you want to run multiple js files in development vs compiling all to one js file.
+
+First, add the helpers to your application:
+
+    class Application < Sinatra::Base
+      helpers SinatraAssetPackager::Helpers
+
+      get "/" do
+        erb :index
+      end
+    end
+
+Second, in your index.erb file place the following:
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>YourApp</title>
+      <link href="/assets/application.css" media="all" rel="stylesheet" type="text/css" />
+      <%= javascript_include_tag :application %>
+    </head>
+    <body>
+      ...
+    </body>
+    </html>
+
+Now the output will be multiple js files (similar to Rails Asset Pipeline setup) in development, but will be compiled to one in production and staging environments. Furthermore, if you want to use the helper and still compile do the following:
+
+    <%= javascript_include_tag :application, compile: true %>
 
 ## Contributing
 
