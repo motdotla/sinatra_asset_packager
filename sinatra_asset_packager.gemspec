@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "uglifier"
   gem.add_dependency "yui-compressor"
   gem.add_dependency "json", "~> 1.7.7"
+  gem.add_dependency "compass"
   
   gem.add_development_dependency "pry"
   gem.add_development_dependency "rspec"
