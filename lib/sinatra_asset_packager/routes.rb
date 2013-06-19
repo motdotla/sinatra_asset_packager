@@ -24,5 +24,11 @@ module SinatraAssetPackager
         SinatraAssetPackager.environment["#{params[:splat][0]}.#{format}"]
       end
     end
+
+    get "/assets/*.svg" do
+      content_type("image/svg+xml")
+      filepath = params[:splat][0]
+      SinatraAssetPackager.environment["#{filepath}.svg"]
+    end
   end
 end
